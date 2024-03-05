@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Restaurants</title>
 </head>
 <body>
-    {% for restaurant in form %}
-        <h2>{{ restaurant.name }}</h2>
-        <p>Address: {{ restaurant.address }}</p>
-        <p>Postcode: {{ restaurant.postcode }}</p>
-        <p>Rating: {{ restaurant.rating }}</p>
-        <p>Cuisine: {{ restaurant.cuisine_name }}</p>
-        <hr>
-    {% endfor %}
+    <form method="POST">
+        <label for="postcode_input">Enter Postcode</label>
+        <input id="postcode_input" autofocus name="postcode" type="text", value="{{ postcode }}">
+        <button type="submit">Find Restaurants</button>
+    </form>
+    <br>
+    <div>
+        {% for restaurant in form %}
+            <h3>{{ restaurant.name }}</h3>
+            Address: {{ restaurant.address }}</br>
+            Postcode: {{ restaurant.postcode }}</br>
+            Rating: {{ restaurant.rating }}</br>
+            Cuisine: {{ restaurant.cuisine_name }}</br>
+            <hr>
+        {% endfor %}
+    </div>
 </body>
 </html>
