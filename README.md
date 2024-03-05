@@ -1,4 +1,4 @@
-# How to run the app
+# Find local restaurants
 
 This app allows you to search for local restaurants based on a given postcode. It returns 10 local restaurants with restaurant name, address, rating and cuisine.
 
