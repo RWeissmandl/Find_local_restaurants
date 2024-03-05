@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Restaurants</title>
+</head>
+<body>
+    {% for restaurant in form %}
+        <h2>{{ restaurant.name }}</h2>
+        <p>Address: {{ restaurant.address }}</p>
+        <p>Postcode: {{ restaurant.postcode }}</p>
+        <p>Rating: {{ restaurant.rating }}</p>
+        <p>Cuisine: {{ restaurant.cuisine_name }}</p>
+        <hr>
+    {% endfor %}
+</body>
+</html>

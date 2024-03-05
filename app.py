@@ -1,18 +1,14 @@
-import requests
+from get_request_to_api import *
+from flask import Flask, render_template
 
-postcode = "EC4M7RF"
-url = f"https://uk.api.just-eat.io/discovery/uk/restaurants/enriched/bypostcode/{postcode}"
-headers = {
-    "Host": "uk.api.just-eat.io",
-    "User-Agent": "Foo bar"
-}
+app = Flask(__name__)
 
-response = requests.get(url, headers=headers)
-print(response)
+@app.route ('/nearbyrestaurants')
+def find_restaurants():
+    find_restaurants = find_local_restaurants("EC4M7RF")
+    find_restaurants.get_request()
+    closest_restaurants = find_restaurants.closest_restaurants(10)
+    return render_template("index.html", form=closest_restaurants)
 
-for restaurant in (response.json()["restaurants"])[0:10]:
-    print (restaurant["name"])
-    print (restaurant["address"]["firstLine"])
-    print(restaurant["address"]["postalCode"])
-    print(restaurant["rating"]["starRating"])
-    print(restaurant["cuisines"][0]["name"])
+if __name__ == "__main__":
+    app.run()
