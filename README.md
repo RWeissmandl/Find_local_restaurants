@@ -11,7 +11,3 @@ This is a Python app using Flask web server. Download the folder, once folder ha
 - This app has no error handling. I would use "try/except" to do basic error handling. 
 - This app has no tests. I would use pytest to create tests, for example, one test would be to assert status.code == 200.
 - An added feature could be to allow users to specify how many restarants to return. This app is hardcoded to return 10.  
-
-# Unclear
-
-The json response included multiple items for some of the requested data points. For example, address included city and lon/lat. Cuisines returned values for a variety of factors. Instructions specified clearly that a 'huge list of data' should not be returned. Therefore, I picked out the essential elements only.
